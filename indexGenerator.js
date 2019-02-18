@@ -30,3 +30,17 @@ try {
 } catch (err) {
     console.error(err);
 }
+
+try {
+
+    const links =
+            Object
+                .entries(projects)
+                .map(project => `[${project[0]}](${project[1]})\n\n`)
+                .reduce((links, link) => links + link, '# My projects\n\n');
+
+            fs.writeFileSync(`${path}/README.md`, links);
+
+} catch (err) {
+    console.log(err);
+}
