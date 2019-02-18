@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: tomato;
+}
+
+#input, .output {
+  font-family: Helvetica;
+  font-size: 20px;
+}
+
+#input {
+  padding: 5px;
+  border-radius: 5px;
+  border-color: black;
+}
+
+#input:focus {
+  outline-color: red;
+}
+
+.output {
+  color: white;
+}
