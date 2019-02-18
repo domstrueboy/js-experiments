@@ -13,7 +13,7 @@ try {
 
             if (file !== 'index.html') return;
 
-            const link = `/${dir}/index.html`;
+            const link = `./${dir}/index.html`;
 
             projects[dir] = link;
         });
