@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS experiments</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+           text-align: center;
+        }
+    </style>
+
+    <div class="container">
+        <h1>My projects</h1>
+        <section>
+            Nothing to show
+        </section>
+    </div>
+
+    <script>
+        const projectsLinks = document.querySelector('.container > section');
+
+        fetch('/projects.json')
+        .then(response => response.json())
+        .then(projects => {
+            const links =
+            Object
+                .entries(projects)
+                .map(project => `<p><a href=${project[1]}>${project[0]}</a></p>`)
+                .reduce((links, link) => links + link, '');
+
+            projectsLinks.innerHTML = links;
+        });
+    </script>
+</body>
+</html>
