@@ -36,7 +36,7 @@ try {
     const links =
             Object
                 .entries(projects)
-                .map(project => `[${project[0]}](${project[1]})\n\n`)
+                .map(project => `[${project[0]}](https://domstrueboy.github.io/js-experiments/${project[0]}/index.html)\n\n`)
                 .reduce((links, link) => links + link, '# My projects\n\n');
 
             fs.writeFileSync(`${path}/README.md`, links);

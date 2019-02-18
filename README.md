@@ -1,8 +1,8 @@
 # My projects
 
-[recursionVsLoop](./recursionVsLoop/index.html)
+[recursionVsLoop](https://domstrueboy.github.io/js-experiments/recursionVsLoop/index.html)
 
-[stickers](./stickers/index.html)
+[stickers](https://domstrueboy.github.io/js-experiments/stickers/index.html)
 
-[throttle](./throttle/index.html)
+[throttle](https://domstrueboy.github.io/js-experiments/throttle/index.html)
 
