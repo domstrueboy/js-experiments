@@ -1,0 +1,16 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, sans-serif;
+}
+.button {
+  font-size: 24pt;
+  min-width: 60pt;
+  border-radius: 5px;
+  border: 1px solid darkorange;
+  background-color: orange;
+  color: white;
+  pointer: cursor;
+}
