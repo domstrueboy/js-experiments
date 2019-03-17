@@ -1,0 +1,24 @@
+{
+  "name": "js-experiments",
+  "version": "1.0.0",
+  "description": "[listener](https://domstrueboy.github.io/js-experiments/listener/index.html)",
+  "main": "indexGenerator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domstrueboy/js-experiments.git"
+  },
+  "author": "Pavel Bobylev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/domstrueboy/js-experiments/issues"
+  },
+  "homepage": "https://github.com/domstrueboy/js-experiments#readme",
+  "devDependencies": {
+    "eslint": "^5.15.2",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
