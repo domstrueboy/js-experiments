@@ -5,46 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Simple TODO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: 'Roboto', sans-serif;
-      width: 480px;
-      margin: 0 auto;
-      padding-top: 10px; 
-    }
-    body>* {
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0;
-      border: 0;
-      padding: 10px;
-    }
-    .to-do-input {
-      border: 1px solid lightgray;
-      font-size: 16px;
-    }
-    .to-do-input:focus {
-      outline: none !important;
-      border: 1px solid black;
-    }
-    .to-do-list {
-      list-style-type: none;
-    }
-    .to-do-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .to-do-delete {
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0);
-      border: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -54,63 +15,6 @@
     <li class="to-do-item">Notning to show</li>
   </ul>
 
-  <script>
-    const input = document.querySelector('.to-do-input');
-    const list = document.querySelector('.to-do-list');
-
-    const todos = initTodos();
-    list.innerHTML = compileList();
-
-    input.addEventListener('keypress', keypressHandler);
-    list.addEventListener('click', clickHandler);
-
-    function initTodos() {
-      const store = localStorage.getItem('todos');
-      if (store) {
-        return store.split(',');
-      } else {
-        return [];
-      }
-    }
-
-    function keypressHandler(event) {
-      if (event.key === 'Enter') {
-        todos.push(input.value);
-        input.value = '';
-        list.innerHTML = compileList();
-      }
-    }
-
-    function clickHandler(event) {
-      if (event.target.classList.contains('to-do-delete')) {
-        const items = [...document.querySelectorAll('.to-do-item')];
-        const indexOfDeletedItem = items.indexOf(event.target.parentNode);
-        todos.splice(indexOfDeletedItem, 1);
-        list.innerHTML = compileList();
-      }
-    }
-
-    function compileList() {
-      localStorage.setItem('todos', todos);
-      if (todos.length > 0) {
-        let listHtml = '';
-        for (let todo of todos) {
-          listHtml = listHtml + todoTemplate(todo);
-        }
-        return listHtml;
-      } else {
-        return '<li class="to-do-item">Nothing to show</li>';
-      }
-    }
-
-    function todoTemplate(text) {
-      return `
-        <li class="to-do-item">
-          ${text}
-          <button class="to-do-delete">❌</button>
-        </li>
-      `;
-    }
-  </script>
+  <script src="modules/main.js"></script>
 </body>
 </html>
