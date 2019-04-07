@@ -6,6 +6,7 @@
   <title>Simple TODO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://domstrueboy.github.io/js-experiments/simple-to-do/" />
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,7 +21,7 @@
   <script src="js/main.js"></script>
   <script>
     if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
+      navigator.serviceWorker.register('/js-experiments/simple-to-do/sw.js', {scope: '/js-experiments/simple-to-do/'});
     };
   </script>
 </body>
