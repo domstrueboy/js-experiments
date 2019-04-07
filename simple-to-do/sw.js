@@ -3,6 +3,8 @@ self.addEventListener('install', function(event) {
     caches.open('sw-cache').then(function(cache) {
       return cache.addAll([
         '/js-experiments/simple-to-do/',
+        '/js-experiments/simple-to-do/css/style.css',
+        '/js-experiments/simple-to-do/js/main.js',
         '/js-experiments/simple-to-do/index.html'
       ]);
     })
