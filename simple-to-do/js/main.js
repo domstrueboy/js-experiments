@@ -20,7 +20,6 @@ function doneItem() {
   const indexOfDoneItem = items.indexOf(event.target.parentNode);
   if (done.includes(items[indexOfDoneItem])) return;
   done.push(items[indexOfDoneItem]);
-  console.log(items[indexOfDoneItem]);
   list.innerHTML = compileList();
 }
 
