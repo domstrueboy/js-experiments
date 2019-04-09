@@ -16,7 +16,7 @@ function initTodos() {
 }
 
 function keypressHandler(event) {
-  if (event.key === 'Enter') {
+  if (event.key === 'Enter' && input.value !== '') {
     todos.push(input.value);
     input.value = '';
     list.innerHTML = compileList();
