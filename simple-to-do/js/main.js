@@ -3,6 +3,10 @@ import Todo from './modules/Todo.js';
 const input = document.querySelector('.to-do-input');
 const list = document.querySelector('.to-do-list');
 
+function removeInstance() {
+  console.log(this);
+}
+
 function getTodos() {
   const oldStoredTodos = localStorage.getItem('todos');
   if (oldStoredTodos !== null) {
@@ -10,17 +14,17 @@ function getTodos() {
     return oldStoredTodos.split(',').map(el => new Todo({
       text: el,
       root: list,
-      todos: el.todos,
+      removeInstance,
     }));
   }
   const storedTodos = localStorage.getItem('todosJSON');
-  if (storedTodos !== null) {
+  if (storedTodos !== null && storedTodos !== 'undefined') {
     return JSON.parse(storedTodos).map(el => new Todo({
       id: el.id,
       text: el.text,
       done: el.done,
       root: list,
-      todos: el.todos,
+      removeInstance,
     }));
   }
   return [];
@@ -30,11 +34,12 @@ const todos = getTodos();
 
 function addTodo(event) {
   if (event.key === 'Enter' && input.value !== '') {
-    todos.push(new Todo({
+    const todo = new Todo({
       text: input.value,
       root: list,
-      todos,
-    }));
+      removeInstance,
+    });
+    todos.push(todo);
     input.value = '';
     localStorage.setItem('todosJSON', JSON.stringify(todos));
   }

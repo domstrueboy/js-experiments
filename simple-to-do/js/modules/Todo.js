@@ -4,13 +4,13 @@ export default class Todo {
     text = '',
     done = false,
     root = document.querySelector('.to-do-list'),
-    todos,
+    removeInstance,
   } = {}) {
     this.id = id;
     this.text = text;
     this.done = done;
     this.root = root;
-    this.todos = todos;
+    this.removeInstance = removeInstance;
     this.addElement();
   }
 
@@ -46,6 +46,7 @@ export default class Todo {
 
   removeElement() {
     this.element.remove();
+    this.removeInstance();
     localStorage.setItem('todosJSON', JSON.stringify(this.todos));
   }
 }
