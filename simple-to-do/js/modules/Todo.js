@@ -47,6 +47,5 @@ export default class Todo {
   removeElement() {
     this.element.remove();
     this.removeInstance();
-    localStorage.setItem('todosJSON', JSON.stringify(this.todos));
   }
 }

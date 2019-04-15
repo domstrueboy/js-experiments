@@ -4,7 +4,9 @@ const input = document.querySelector('.to-do-input');
 const list = document.querySelector('.to-do-list');
 
 function removeInstance() {
-  console.log(this);
+  const indexOfDeletedItem = todos.indexOf(this);
+  todos.splice(indexOfDeletedItem, 1);
+  localStorage.setItem('todosJSON', JSON.stringify(todos));
 }
 
 function getTodos() {
