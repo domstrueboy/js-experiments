@@ -39,6 +39,7 @@ function getTodos() {
 }
 
 const todos = getTodos();
+localStorage.setItem('todosJSON', JSON.stringify(todos));
 
 function addTodo(event) {
   if (event.key === 'Enter' && input.value !== '') {
