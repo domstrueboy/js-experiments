@@ -5,13 +5,18 @@ export default class Todo {
     done = false,
     root = document.querySelector('.to-do-list'),
     removeInstance,
+    toggleDoneInstance,
   } = {}) {
     this.id = id;
     this.text = text;
     this.done = done;
     this.root = root;
     this.removeInstance = removeInstance;
+    this.toggleDoneInstance = toggleDoneInstance;
     this.addElement();
+    if (this.done) {
+      this.element.classList.add('done');
+    }
   }
 
   addElement() {
@@ -39,9 +44,9 @@ export default class Todo {
   }
 
   toggleDone() {
-    this.element.done = !this.element.done;
+    this.done = !this.done;
     this.element.classList.toggle('done');
-    localStorage.setItem('todosJSON', JSON.stringify(this.todos));
+    this.toggleDoneInstance();
   }
 
   removeElement() {

@@ -9,16 +9,11 @@ function removeInstance() {
   localStorage.setItem('todosJSON', JSON.stringify(todos));
 }
 
+function toggleDoneInstance() {
+  localStorage.setItem('todosJSON', JSON.stringify(todos));
+}
+
 function getTodos() {
-  const oldStoredTodos = localStorage.getItem('todos');
-  if (oldStoredTodos !== null) {
-    localStorage.removeItem('todos');
-    return oldStoredTodos.split(',').map(el => new Todo({
-      text: el,
-      root: list,
-      removeInstance,
-    }));
-  }
   const storedTodos = localStorage.getItem('todosJSON');
   if (storedTodos !== null && storedTodos !== 'undefined') {
     return JSON.parse(storedTodos).map(el => new Todo({
@@ -27,6 +22,17 @@ function getTodos() {
       done: el.done,
       root: list,
       removeInstance,
+      toggleDoneInstance,
+    }));
+  }
+  const oldStoredTodos = localStorage.getItem('todos');
+  if (oldStoredTodos !== null) {
+    localStorage.removeItem('todos');
+    return oldStoredTodos.split(',').map(el => new Todo({
+      text: el,
+      root: list,
+      removeInstance,
+      toggleDoneInstance,
     }));
   }
   return [];
@@ -40,6 +46,7 @@ function addTodo(event) {
       text: input.value,
       root: list,
       removeInstance,
+      toggleDoneInstance,
     });
     todos.push(todo);
     input.value = '';
