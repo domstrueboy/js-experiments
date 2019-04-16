@@ -1,4 +1,4 @@
-window.addEventListener('install', (event) => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('sw-cache').then(cache => cache.addAll([
       '/js-experiments/simple-to-do/',
@@ -9,7 +9,7 @@ window.addEventListener('install', (event) => {
   );
 });
 
-window.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then(response => response || fetch(event.request)),
   );
