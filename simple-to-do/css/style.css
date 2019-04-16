@@ -32,8 +32,15 @@ body>* {
   justify-content: space-between;
   margin-bottom: 10px;
 }
-.to-do-delete {
+.to-do-text {
+  margin-right: auto;
+}
+.to-do-done, .to-do-delete {
   cursor: pointer;
   background: rgba(255, 255, 255, 0);
   border: 0;
+}
+.to-do-item.done .to-do-text {
+  color: lightgray;
+  text-decoration: line-through;
 }

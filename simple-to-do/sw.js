@@ -1,20 +1,16 @@
-self.addEventListener('install', function(event) {
+window.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open('sw-cache').then(function(cache) {
-      return cache.addAll([
-        '/js-experiments/simple-to-do/',
-        '/js-experiments/simple-to-do/css/style.css',
-        '/js-experiments/simple-to-do/js/main.js',
-        '/js-experiments/simple-to-do/index.html'
-      ]);
-    })
+    caches.open('sw-cache').then(cache => cache.addAll([
+      '/js-experiments/simple-to-do/',
+      '/js-experiments/simple-to-do/css/style.css',
+      '/js-experiments/simple-to-do/js/main.js',
+      '/js-experiments/simple-to-do/index.html',
+    ])),
   );
 });
- 
-self.addEventListener('fetch', function(event) {
+
+window.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then(response => response || fetch(event.request)),
   );
 });

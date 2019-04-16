@@ -1,55 +1,57 @@
+import Todo from './modules/Todo.js';
+
 const input = document.querySelector('.to-do-input');
 const list = document.querySelector('.to-do-list');
-const todos = initTodos();
 
-list.innerHTML = compileList();
-input.addEventListener('keypress', keypressHandler);
-list.addEventListener('click', clickHandler);
-
-function initTodos() {
-  const store = localStorage.getItem('todos');
-  if (store) {
-    return store.split(',');
-  } else {
-    return [];
-  }
+function removeInstance() {
+  const indexOfDeletedItem = todos.indexOf(this);
+  todos.splice(indexOfDeletedItem, 1);
+  localStorage.setItem('todosJSON', JSON.stringify(todos));
 }
 
-function keypressHandler(event) {
+function toggleDoneInstance() {
+  localStorage.setItem('todosJSON', JSON.stringify(todos));
+}
+
+function getTodos() {
+  const storedTodos = localStorage.getItem('todosJSON');
+  if (storedTodos !== null && storedTodos !== 'undefined') {
+    return JSON.parse(storedTodos).map(el => new Todo({
+      id: el.id,
+      text: el.text,
+      done: el.done,
+      root: list,
+      removeInstance,
+      toggleDoneInstance,
+    }));
+  }
+  const oldStoredTodos = localStorage.getItem('todos');
+  if (oldStoredTodos !== null) {
+    localStorage.removeItem('todos');
+    return oldStoredTodos.split(',').map(el => new Todo({
+      text: el,
+      root: list,
+      removeInstance,
+      toggleDoneInstance,
+    }));
+  }
+  return [];
+}
+
+const todos = getTodos();
+
+function addTodo(event) {
   if (event.key === 'Enter' && input.value !== '') {
-    todos.push(input.value);
+    const todo = new Todo({
+      text: input.value,
+      root: list,
+      removeInstance,
+      toggleDoneInstance,
+    });
+    todos.push(todo);
     input.value = '';
-    list.innerHTML = compileList();
+    localStorage.setItem('todosJSON', JSON.stringify(todos));
   }
 }
 
-function clickHandler(event) {
-  if (event.target.classList.contains('to-do-delete')) {
-    const items = [...document.querySelectorAll('.to-do-item')];
-    const indexOfDeletedItem = items.indexOf(event.target.parentNode);
-    todos.splice(indexOfDeletedItem, 1);
-    list.innerHTML = compileList();
-  }
-}
-
-function compileList() {
-  localStorage.setItem('todos', todos);
-  if (todos.length > 0) {
-    let listHtml = '';
-    for (let todo of todos) {
-      listHtml = listHtml + todoTemplate(todo);
-    }
-    return listHtml;
-  } else {
-    return '<li class="to-do-item">Nothing to show</li>';
-  }
-}
-
-function todoTemplate(text) {
-  return `
-        <li class="to-do-item">
-          ${text}
-          <button class="to-do-delete">❌</button>
-        </li>
-      `;
-}
+input.addEventListener('keypress', addTodo);

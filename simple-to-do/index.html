@@ -15,11 +15,9 @@
 
   <input type="text" class="to-do-input" autofocus>
 
-  <ul class="to-do-list">
-    <li class="to-do-item">Notning to show</li>
-  </ul>
+  <ul class="to-do-list"></ul>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" type="module"></script>
   <script>
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/js-experiments/simple-to-do/sw.js', {scope: '/js-experiments/simple-to-do/'});
