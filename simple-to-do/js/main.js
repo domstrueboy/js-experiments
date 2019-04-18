@@ -25,21 +25,11 @@ function getTodos() {
       toggleDoneInstance,
     }));
   }
-  const oldStoredTodos = localStorage.getItem('todos');
-  if (oldStoredTodos !== null) {
-    localStorage.removeItem('todos');
-    return oldStoredTodos.split(',').map(el => new Todo({
-      text: el,
-      root: list,
-      removeInstance,
-      toggleDoneInstance,
-    }));
-  }
+
   return [];
 }
 
 const todos = getTodos();
-localStorage.setItem('todosJSON', JSON.stringify(todos));
 
 function addTodo(event) {
   if (event.key === 'Enter' && input.value !== '') {
