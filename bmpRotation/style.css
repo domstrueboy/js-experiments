@@ -10,6 +10,6 @@ body > * {
 
 img {
   border: 1px solid black;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 10px;
+  min-height: 10px;
 }
