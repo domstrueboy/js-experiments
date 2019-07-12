@@ -1,5 +1,7 @@
 # My projects
 
+[bmpRotation](https://domstrueboy.github.io/js-experiments/bmpRotation/index.html)
+
 [listener](https://domstrueboy.github.io/js-experiments/listener/index.html)
 
 [recursionVsLoop](https://domstrueboy.github.io/js-experiments/recursionVsLoop/index.html)
