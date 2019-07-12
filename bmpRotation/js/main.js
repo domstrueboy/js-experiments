@@ -27,7 +27,7 @@ class Main {
     const reader = new FileReader();
     reader.readAsArrayBuffer(this.inImageFile);
     reader.onload = (e) => {
-      this.outImageFile = new File([convert(e.target.result)], 'outImageFile.bmp');
+      this.outImageFile = new File([convert(e.target.result)], '', { type: 'image/bmp' });
       this.displayImage(this.outImage, this.outImageFile);
     };
   }

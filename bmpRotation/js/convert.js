@@ -1,9 +1,21 @@
 /* eslint-disable no-plusplus */
 export default function convert(buffer) {
-  console.log(buffer);
-  const int8ArrayView = new Int8Array(buffer);
-  for (let i = 69, len = int8ArrayView.length; i < len; i += 3) {
-    int8ArrayView[i] += 100;
+  const Uint8ArrayView = new Uint8Array(buffer);
+  const savedUint8ArrayView = Uint8Array.from(Uint8ArrayView);
+  const headersBytes = 68;
+  const len = savedUint8ArrayView.length;
+  const width = savedUint8ArrayView[18];
+  const height = savedUint8ArrayView[22];
+
+  Uint8ArrayView[18] = height;
+  Uint8ArrayView[22] = width;
+
+  for (let i = 0; i < height; i += 1) {
+    for (let j = 0; j < width; j += 1) {
+      Uint8ArrayView[headersBytes + 1 + j * height * 3 + i * 3] = savedUint8ArrayView[headersBytes + 1 + i * width * 3 + j * 3];
+      Uint8ArrayView[headersBytes + 1 + j * height * 3 + i * 3 + 1] = savedUint8ArrayView[headersBytes + 1 + i * width * 3 + j * 3 + 1];
+      Uint8ArrayView[headersBytes + 1 + j * height * 3 + i * 3 + 2] = savedUint8ArrayView[headersBytes + 1 + i * width * 3 + j * 3 + 2];
+    }
   }
   return buffer;
 }
