@@ -11,10 +11,12 @@ export default function convert(buffer) {
   Uint8ArrayView[22] = width;
 
   for (let i = 0; i < height; i++) {
-    for (let j = width - 1; j >= 0; j--) {
-      Uint8ArrayView[headersBytes + 1 + j * height * 3 + i * 3] = savedUint8ArrayView[headersBytes + 1 + i * width * 3 + j * 3];
-      Uint8ArrayView[headersBytes + 1 + j * height * 3 + i * 3 + 1] = savedUint8ArrayView[headersBytes + 1 + i * width * 3 + j * 3 + 1];
-      Uint8ArrayView[headersBytes + 1 + j * height * 3 + i * 3 + 2] = savedUint8ArrayView[headersBytes + 1 + i * width * 3 + j * 3 + 2];
+    for (let j = 0; j < width; j++) {
+      const I = headersBytes + 1 + i * width * 3 + j * 3;
+      const O = headersBytes + 1 + j * height * 3 + i * 3;
+      Uint8ArrayView[O] = savedUint8ArrayView[I];
+      Uint8ArrayView[O + 1] = savedUint8ArrayView[I + 1];
+      Uint8ArrayView[O + 2] = savedUint8ArrayView[I + 2];
     }
   }
   return buffer;
