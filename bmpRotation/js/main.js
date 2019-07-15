@@ -10,8 +10,9 @@ class Main {
 
   selectorsAssign() {
     this.input = document.querySelector('input');
-    this.inImage = document.querySelector('.inImage');
-    this.outImage = document.querySelector('.outImage');
+    this.inImage = document.querySelector('.in-image');
+    this.outImage = document.querySelector('.out-image');
+    this.downloadLink = document.querySelector('.download-link');
   }
 
   listenersAssign() {
@@ -29,6 +30,7 @@ class Main {
     reader.onload = (e) => {
       this.outImageFile = new File([convert(e.target.result)], '', { type: 'image/bmp' });
       this.displayImage(this.outImage, this.outImageFile);
+      this.showFileLink(this.outImageFile);
     };
   }
 
@@ -37,6 +39,11 @@ class Main {
     image.onload = () => {
       window.URL.revokeObjectURL(this.src);
     };
+  }
+
+  showFileLink(fileToDisplay) {
+    this.downloadLink.href = window.URL.createObjectURL(fileToDisplay);
+    this.downloadLink.style.display = 'inline';
   }
 }
 

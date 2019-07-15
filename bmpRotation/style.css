@@ -10,6 +10,10 @@ body > * {
 
 img {
   border: 1px solid black;
-  min-width: 10px;
-  min-height: 10px;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.download-link {
+  display: none;
 }
