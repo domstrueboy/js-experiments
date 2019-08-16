@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body > * {
+  margin-bottom: 8px;
+  align-self: center;
+}
+
+img {
+  border: 1px solid black;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.download-link {
+  display: none;
+}
