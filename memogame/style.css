@@ -28,8 +28,7 @@ li {
     cursor: pointer;
 }
 
-li:hover {
-    background: tomato;
-    color: white;
-    transition: .25s;
+li.finished {
+    border: 0;
+    background: lightgray;
 }

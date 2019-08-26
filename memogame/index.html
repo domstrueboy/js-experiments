@@ -10,8 +10,13 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="card in cards" :key="card.id">
-                {{ card.value }}
+            <li
+                v-for="(card, index) in cards"
+                :key="index"
+                @click="handleClick(card)"
+                :class="{ finished: card.finished }"
+            >
+                {{ card.opened && !card.finished ? card.value : '' }}
             </li>
         </ul>
     </div>
