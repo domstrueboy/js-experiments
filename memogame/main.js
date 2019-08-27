@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const set = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 const doubledSet = [...set, ...set];
 const shuffledSet = shuffle(doubledSet);
@@ -12,33 +13,29 @@ const app = new window.Vue({
   data: {
     cards,
     previousCard: null,
+    previousRecord: localStorage.getItem('record') || 1000,
+    counter: 0,
   },
   methods: {
     handleClick(card) {
-      cards.forEach((el) => { el.opened = false; });
+      this.cards.forEach((el) => { el.opened = false; });
       card.opened = true;
       if (card && this.previousCard && card.value === this.previousCard.value) {
         card.finished = true;
         this.previousCard.finished = true;
       }
       this.previousCard = card;
+      this.counter++;
+      this.isWin();
+    },
+    isWin() {
+      if (this.cards.every(card => card.finished)) {
+        if (this.counter < this.previousRecord) {
+          localStorage.setItem('record', this.counter);
+        }
+        alert('WIN!');
+        location.reload();
+      }
     },
   },
 });
-
-function shuffle(incomingArray) {
-  const array = incomingArray.slice();
-  let currentIndex = array.length;
-  let temporaryValue;
-  let randomIndex;
-
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}

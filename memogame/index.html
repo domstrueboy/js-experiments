@@ -19,9 +19,14 @@
                 {{ card.opened && !card.finished ? card.value : '' }}
             </li>
         </ul>
+        <section>
+            <span>Previous record: {{ previousRecord }}</span>
+            <span>Moves: {{ counter }}</span>
+        </section>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="shuffle.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

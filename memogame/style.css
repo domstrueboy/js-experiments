@@ -29,6 +29,15 @@ li {
 }
 
 li.finished {
-    border: 0;
-    background: lightgray;
+    opacity: 0;
+    transition: .5s;
+}
+
+section {
+    padding: 20px;
+    display: flex;
+}
+
+span:last-child {
+    margin-left: auto;
 }
