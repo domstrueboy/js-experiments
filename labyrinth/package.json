@@ -1,0 +1,14 @@
+{
+  "name": "labyrinth",
+  "version": "1.0.0",
+  "description": "simple programming game for children",
+  "main": "main.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "Pavel Bobylyev",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
