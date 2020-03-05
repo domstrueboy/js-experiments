@@ -2,6 +2,8 @@ body {
   margin: 0;
 }
 #bubble-background {
+  --bubble-size: 10;
+  --bubble-color: #eee;
   width: 100vw;
   height: 100vh;
   background-image: paint(bubblePaint);

@@ -1,6 +1,12 @@
 registerPaint('bubblePaint', class {
-  paint(ctx, geom) {
-    const circleSize = 10;
+  static get inputProperties() {
+    return ['--bubble-size', '--bubble-color'];
+  }
+
+  paint(ctx, geom, properties) {
+    const circleSize = parseInt(properties.get('--bubble-size').toString());
+    const circleColor = properties.get('--bubble-color').toString()
+
     const bodyWidth = geom.width;
     const bodyHeight = geom.height;
 
@@ -9,7 +15,7 @@ registerPaint('bubblePaint', class {
 
     for (let y = 0; y < maxY; y++) {
       for (let x = 0; x < maxX; x++) {
-        ctx.fillStyle = '#eee';
+        ctx.fillStyle = circleColor;
         ctx.beginPath();
         ctx.arc(x * circleSize * 2 + circleSize, y * circleSize * 2 + circleSize, circleSize, 0, 2 * Math.PI, true);
         ctx.closePath();
