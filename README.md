@@ -2,6 +2,12 @@
 
 [bmpRotation](https://domstrueboy.github.io/js-experiments/bmpRotation/index.html)
 
+[cssPaintBackground](https://domstrueboy.github.io/js-experiments/cssPaintBackground/index.html)
+
+[DSL](https://domstrueboy.github.io/js-experiments/DSL/index.html)
+
+[labyrinth](https://domstrueboy.github.io/js-experiments/labyrinth/index.html)
+
 [listen](https://domstrueboy.github.io/js-experiments/listen/index.html)
 
 [listener](https://domstrueboy.github.io/js-experiments/listener/index.html)
@@ -19,4 +25,6 @@
 [stickers](https://domstrueboy.github.io/js-experiments/stickers/index.html)
 
 [throttle](https://domstrueboy.github.io/js-experiments/throttle/index.html)
+
+[web-socket-chat](https://domstrueboy.github.io/js-experiments/web-socket-chat/index.html)
 
