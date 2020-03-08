@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progressive Image Loading</title>
+</head>
+<body>
+  <img data-src="progressive.jpg" data-bytes="47105">
+</body>
+<script>
+  var $img = document.querySelector("img[data-src]");
+  var URL = window.URL || window.webkitURL;
+
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+      if (this.status === 206){
+          $img.src_part = this.response;
+          $img.src = URL.createObjectURL(this.response);
+      }
+  }
+
+  xhr.open('GET', $img.getAttribute('data-src'));
+  xhr.setRequestHeader("Range", "bytes=0-" + $img.getAttribute('data-bytes'));
+  xhr.responseType = 'blob';
+  xhr.send();
+</script>
+</html>
