@@ -6,6 +6,8 @@
 
 [DSL](https://domstrueboy.github.io/js-experiments/DSL/index.html)
 
+[gallery](https://domstrueboy.github.io/js-experiments/gallery/index.html)
+
 [labyrinth](https://domstrueboy.github.io/js-experiments/labyrinth/index.html)
 
 [listen](https://domstrueboy.github.io/js-experiments/listen/index.html)
@@ -15,6 +17,8 @@
 [memogame](https://domstrueboy.github.io/js-experiments/memogame/index.html)
 
 [micVisualization](https://domstrueboy.github.io/js-experiments/micVisualization/index.html)
+
+[progressive-img-loading](https://domstrueboy.github.io/js-experiments/progressive-img-loading/index.html)
 
 [recursionVsLoop](https://domstrueboy.github.io/js-experiments/recursionVsLoop/index.html)
 
