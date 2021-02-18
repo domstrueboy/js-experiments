@@ -1,3 +1,4 @@
-export default function () {
-  return 1;
+export default function (input) {
+  const output = input;
+  return output;
 }

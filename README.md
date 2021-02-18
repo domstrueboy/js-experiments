@@ -28,6 +28,8 @@
 
 [stickers](https://domstrueboy.github.io/js-experiments/stickers/index.html)
 
+[sumObjProps](https://domstrueboy.github.io/js-experiments/sumObjProps/index.html)
+
 [throttle](https://domstrueboy.github.io/js-experiments/throttle/index.html)
 
 [web-socket-chat](https://domstrueboy.github.io/js-experiments/web-socket-chat/index.html)

@@ -26,5 +26,5 @@ observer.observe(outputEl, { childList: true });
 
 async function run() {
   const { default: method } = await import(`./methods/${methodEl.value}.js`);
-  outputEl.innerText = method();
+  outputEl.innerText = method(input);
 }
